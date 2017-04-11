@@ -73,3 +73,59 @@ SELECT *
 -- midwest/(south + west + northeast + midwest) AS "midwest percentage"
 -- FROM tutorial.us_housing_units
 -- WHERE year > 1990
+
+
+#######################################
+PART 2
+
+-- All rows where Elvis Presley had a song on the top 100 charts
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end 
+-- WHERE "group" ILIKE '%Elvis Presley%'
+-- OR artist ILIKE '%Elvis Presley%'
+
+-- All rows where the artist's name contained "Tony" (not case sensitive)
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end 
+-- WHERE artist LIKE '%Tony%'
+
+-- All rows where the song title contained the word "love" in any way
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end 
+-- WHERE song_name ILIKE '%love%'
+
+-- All rows where the artist's name begins with the letter "A"
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end 
+-- WHERE artist LIKE 'A%'
+
+-- The top 3 songs from each year between 1960-1969
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end 
+-- WHERE year_rank <= 3
+-- AND year BETWEEN 1960 AND 1969
+
+-- All rows where either Elvis Presley, The Rolling Stones, or Van Halen were the artist
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end
+-- WHERE artist IN ('Elvis Presley', 'Rolling Stones', 'Van Halen')
+
+
+-- Which artist has had the most appearances on the top 100 list?
+-- SELECT artist, count(artist) AS count
+-- FROM tutorial.billboard_top_100_year_end
+-- GROUP BY artist
+-- ORDER BY count DESC
+
+-- Which artist has had the most #1 hits? How many?
+-- SELECT artist, count(artist) AS count
+-- FROM tutorial.billboard_top_100_year_end
+-- WHERE year_rank = 1
+-- GROUP BY artist
+-- ORDER BY count DESC
+
+-- All rows from 1970 where the songs were ranked 10-20th
+-- SELECT *
+-- FROM tutorial.billboard_top_100_year_end 
+-- WHERE year = 1970
+-- AND year_rank BETWEEN 10 AND 20
